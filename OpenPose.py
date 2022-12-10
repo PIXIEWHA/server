@@ -117,8 +117,8 @@ def output_keypoints_with_lines_video(proto_file, weights_file, video_path, vide
 
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     filename = video_path + video_name + "_OpenPose" +".mp4" # 파일명
-
-    out = cv2.VideoWriter(filename, fourcc, fps, (int(width), int(height)))
+    print(filename)
+    out = cv2.VideoWriter(filename, fourcc, fps, (1920, 1080))
 
     while True:
         now_frame_boy = cap.get(cv2.CAP_PROP_POS_FRAMES)

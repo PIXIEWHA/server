@@ -1,0 +1,5 @@
+train: ../train/images
+val: ../valid/images
+
+nc: 11
+names: [ 'person', 'bag', 'bottle', 'box', 'can', 'cup', 'glass', 'paper', 'plastic', 'clothes', 'phone' ]
