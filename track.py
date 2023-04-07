@@ -189,16 +189,16 @@ def detect(opt):
             else:
                 deepsort.increment_ages()
 
-            # if (a.x + a.width) >= (b.x) and (a.y) <= (b.y + b.height)  and (a.y + a.height) >= (b.y): 확인 및 겹침 저장
+            # if (a.x + a.width) >= (b.x) and (a.x) <= (b.x + b.width) and (a.y) <= (b.y + b.height)  and (a.y + a.height) >= (b.y): 확인 및 겹침 저장
             for p in person:
                 for o in object:
                     if [p[0], o[0]] in now:
                         continue
 
-                    if (p[2] + p[4]) >= o[2] and (p[3] <= (o[3] + o[5]) or p[3] + p[5] >= o[3]):
+                    if (p[2] + p[4]) >= o[2] and p[2] <= (o[2] + o[4]) and p[3] <= (o[3] + o[5]) and (p[3] + p[5]) >= o[3]:
                         now.append([p[0], o[0]])
                     
-                    if (o[2] + o[4]) >= p[2] and (o[3] <= (p[3] + p[5]) or o[3] + o[5] >= p[3]):
+                    if (o[2] + o[4]) >= p[2] and o[2] <= (p[2] + p[4]) and o[3] <= (p[3] + p[5]) and (o[3] + o[5]) >= p[3]:
                         now.append([p[0], o[0]])
 
             # 위의 겹침 now 저장과 이전 겹침 before 저장 비교하여 분리 확인 및 알림
